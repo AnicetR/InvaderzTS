@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/index.ts",
   devtool: "source-map",
   resolve: {
-    extensions: [".ts", ".js", ".json"]
+    extensions: [".ts", ".js", ".json", ".png", ".jpg", '.gif']
   },
   output: {
     path: path.join(__dirname, "/dist"),
@@ -16,7 +16,13 @@ module.exports = {
       { 
         test: /\.ts?$/, 
         loader: "awesome-typescript-loader"
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          'file-loader',
+        ],
+      },
     ]
   },
   plugins: [
