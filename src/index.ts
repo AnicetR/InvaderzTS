@@ -1,11 +1,14 @@
-type Message = {
-    body: string,
-    from: string
-  }
-   
-  let message: Message = {
-    from: 'Max',
-    body: 'Hi!'
-  }
-   
-  console.log(`New message from ${message.from}: ${message.body}`)
+import { spaceinvaderz } from "./game/spaceinvaderz";
+
+//createContextCanvas
+const canvas: HTMLCanvasElement = document.createElement('canvas');
+canvas.height = 800;
+canvas.width = 750;
+canvas.style.border = "1px solid red";
+
+document.body.append(canvas);
+
+
+document.onloadend = () => {
+  new spaceinvaderz(canvas);
+}
