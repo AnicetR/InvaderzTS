@@ -8,7 +8,4 @@ canvas.style.border = "1px solid red";
 
 document.body.append(canvas);
 
-
-document.onloadend = () => {
-  new spaceinvaderz(canvas);
-}
+new spaceinvaderz(canvas);
