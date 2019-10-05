@@ -1,0 +1,543 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`context.drawSprite 1`] = `
+CanvasRenderingContext2D {
+  "_canvas": <canvas
+    height="300"
+    width="150"
+  />,
+  "_directionStack": Array [
+    "inherit",
+  ],
+  "_drawCalls": Array [
+    Object {
+      "props": Object {
+        "height": 300,
+        "width": 150,
+        "x": 0,
+        "y": 0,
+      },
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "clearRect",
+    },
+    Object {
+      "props": Object {
+        "dHeight": 0,
+        "dWidth": 0,
+        "dx": 0,
+        "dy": 0,
+        "img": <img
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEA3ADcAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wgARCAABAAEDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAX8f/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAwEBPwF//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAgEBPwF//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQAGPwJ//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPyF//9oADAMBAAIAAwAAABAf/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAwEBPxB//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAgEBPxB//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxB//9k="
+        />,
+        "sHeight": 0,
+        "sWidth": 0,
+        "sx": 0,
+        "sy": 0,
+      },
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "drawImage",
+    },
+  ],
+  "_events": Array [
+    Object {
+      "props": Object {},
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "save",
+    },
+    Object {
+      "props": Object {
+        "height": 300,
+        "width": 150,
+        "x": 0,
+        "y": 0,
+      },
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "clearRect",
+    },
+    Object {
+      "props": Object {},
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "restore",
+    },
+    Object {
+      "props": Object {
+        "dHeight": 0,
+        "dWidth": 0,
+        "dx": 0,
+        "dy": 0,
+        "img": <img
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEA3ADcAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wgARCAABAAEDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAX8f/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAwEBPwF//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAgEBPwF//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQAGPwJ//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPyF//9oADAMBAAIAAwAAABAf/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAwEBPxB//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAgEBPxB//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxB//9k="
+        />,
+        "sHeight": 0,
+        "sWidth": 0,
+        "sx": 0,
+        "sy": 0,
+      },
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "drawImage",
+    },
+  ],
+  "_fillStyleStack": Array [
+    "#000",
+  ],
+  "_filterStack": Array [
+    "none",
+  ],
+  "_fontStack": Array [
+    "10px sans-serif",
+  ],
+  "_globalAlphaStack": Array [
+    1,
+  ],
+  "_globalCompositeOperationStack": Array [
+    "source-over",
+  ],
+  "_imageSmoothingEnabledStack": Array [
+    true,
+  ],
+  "_imageSmoothingQualityStack": Array [
+    "low",
+  ],
+  "_lineCapStack": Array [
+    "butt",
+  ],
+  "_lineDashOffsetStack": Array [
+    0,
+  ],
+  "_lineDashStack": Array [
+    Array [],
+  ],
+  "_lineJoinStack": Array [
+    "miter",
+  ],
+  "_lineWidthStack": Array [
+    1,
+  ],
+  "_miterLimitStack": Array [
+    10,
+  ],
+  "_path": Array [
+    Object {
+      "props": Object {},
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "beginPath",
+    },
+  ],
+  "_shadowBlurStack": Array [
+    0,
+  ],
+  "_shadowColorStack": Array [
+    "rgba(0, 0, 0, 0)",
+  ],
+  "_shadowOffsetXStack": Array [
+    0,
+  ],
+  "_shadowOffsetYStack": Array [
+    0,
+  ],
+  "_stackIndex": 0,
+  "_strokeStyleStack": Array [
+    "#000",
+  ],
+  "_textAlignStack": Array [
+    "start",
+  ],
+  "_textBaselineStack": Array [
+    "alphabetic",
+  ],
+  "_transformStack": Array [
+    Array [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+  ],
+  "addHitRegion": [MockFunction],
+  "arc": [MockFunction],
+  "arcTo": [MockFunction],
+  "beginPath": [MockFunction],
+  "bezierCurveTo": [MockFunction],
+  "clearHitRegions": [MockFunction],
+  "clearRect": [MockFunction] {
+    "calls": Array [
+      Array [
+        0,
+        0,
+        150,
+        300,
+      ],
+    ],
+    "results": Array [
+      Object {
+        "type": "return",
+        "value": undefined,
+      },
+    ],
+  },
+  "clip": [MockFunction],
+  "closePath": [MockFunction],
+  "createImageData": [MockFunction],
+  "createLinearGradient": [MockFunction],
+  "createPattern": [MockFunction],
+  "createRadialGradient": [MockFunction],
+  "drawFocusIfNeeded": [MockFunction],
+  "drawImage": [MockFunction] {
+    "calls": Array [
+      Array [
+        <img
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEA3ADcAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wgARCAABAAEDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAX8f/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAwEBPwF//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAgEBPwF//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQAGPwJ//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPyF//9oADAMBAAIAAwAAABAf/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAwEBPxB//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAgEBPxB//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxB//9k="
+        />,
+        0,
+        0,
+        0,
+        0,
+      ],
+    ],
+    "results": Array [
+      Object {
+        "type": "return",
+        "value": undefined,
+      },
+    ],
+  },
+  "ellipse": [MockFunction],
+  "fill": [MockFunction],
+  "fillRect": [MockFunction],
+  "fillText": [MockFunction],
+  "getImageData": [MockFunction],
+  "getLineDash": [MockFunction],
+  "getTransform": [MockFunction],
+  "isPointInPath": [MockFunction],
+  "isPointInStroke": [MockFunction],
+  "lineTo": [MockFunction],
+  "measureText": [MockFunction],
+  "moveTo": [MockFunction],
+  "putImageData": [MockFunction],
+  "quadraticCurveTo": [MockFunction],
+  "rect": [MockFunction],
+  "removeHitRegion": [MockFunction],
+  "resetTransform": [MockFunction],
+  "restore": [MockFunction] {
+    "calls": Array [
+      Array [],
+    ],
+    "results": Array [
+      Object {
+        "type": "return",
+        "value": undefined,
+      },
+    ],
+  },
+  "rotate": [MockFunction],
+  "save": [MockFunction] {
+    "calls": Array [
+      Array [],
+    ],
+    "results": Array [
+      Object {
+        "type": "return",
+        "value": undefined,
+      },
+    ],
+  },
+  "scale": [MockFunction],
+  "scrollPathIntoView": [MockFunction],
+  "setLineDash": [MockFunction],
+  "setTransform": [MockFunction],
+  "stroke": [MockFunction],
+  "strokeRect": [MockFunction],
+  "strokeText": [MockFunction],
+  "transform": [MockFunction],
+  "translate": [MockFunction],
+}
+`;
+
+exports[`context.managerFunction(.save, .restore, .clear) 1`] = `
+CanvasRenderingContext2D {
+  "_canvas": <canvas
+    height="300"
+    width="150"
+  />,
+  "_directionStack": Array [
+    "inherit",
+  ],
+  "_drawCalls": Array [
+    Object {
+      "props": Object {
+        "height": 300,
+        "width": 150,
+        "x": 0,
+        "y": 0,
+      },
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "clearRect",
+    },
+  ],
+  "_events": Array [
+    Object {
+      "props": Object {},
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "save",
+    },
+    Object {
+      "props": Object {
+        "height": 300,
+        "width": 150,
+        "x": 0,
+        "y": 0,
+      },
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "clearRect",
+    },
+    Object {
+      "props": Object {},
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "restore",
+    },
+  ],
+  "_fillStyleStack": Array [
+    "#000",
+  ],
+  "_filterStack": Array [
+    "none",
+  ],
+  "_fontStack": Array [
+    "10px sans-serif",
+  ],
+  "_globalAlphaStack": Array [
+    1,
+  ],
+  "_globalCompositeOperationStack": Array [
+    "source-over",
+  ],
+  "_imageSmoothingEnabledStack": Array [
+    true,
+  ],
+  "_imageSmoothingQualityStack": Array [
+    "low",
+  ],
+  "_lineCapStack": Array [
+    "butt",
+  ],
+  "_lineDashOffsetStack": Array [
+    0,
+  ],
+  "_lineDashStack": Array [
+    Array [],
+  ],
+  "_lineJoinStack": Array [
+    "miter",
+  ],
+  "_lineWidthStack": Array [
+    1,
+  ],
+  "_miterLimitStack": Array [
+    10,
+  ],
+  "_path": Array [
+    Object {
+      "props": Object {},
+      "transform": Array [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+      "type": "beginPath",
+    },
+  ],
+  "_shadowBlurStack": Array [
+    0,
+  ],
+  "_shadowColorStack": Array [
+    "rgba(0, 0, 0, 0)",
+  ],
+  "_shadowOffsetXStack": Array [
+    0,
+  ],
+  "_shadowOffsetYStack": Array [
+    0,
+  ],
+  "_stackIndex": 0,
+  "_strokeStyleStack": Array [
+    "#000",
+  ],
+  "_textAlignStack": Array [
+    "start",
+  ],
+  "_textBaselineStack": Array [
+    "alphabetic",
+  ],
+  "_transformStack": Array [
+    Array [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+  ],
+  "addHitRegion": [MockFunction],
+  "arc": [MockFunction],
+  "arcTo": [MockFunction],
+  "beginPath": [MockFunction],
+  "bezierCurveTo": [MockFunction],
+  "clearHitRegions": [MockFunction],
+  "clearRect": [MockFunction] {
+    "calls": Array [
+      Array [
+        0,
+        0,
+        150,
+        300,
+      ],
+    ],
+    "results": Array [
+      Object {
+        "type": "return",
+        "value": undefined,
+      },
+    ],
+  },
+  "clip": [MockFunction],
+  "closePath": [MockFunction],
+  "createImageData": [MockFunction],
+  "createLinearGradient": [MockFunction],
+  "createPattern": [MockFunction],
+  "createRadialGradient": [MockFunction],
+  "drawFocusIfNeeded": [MockFunction],
+  "drawImage": [MockFunction],
+  "ellipse": [MockFunction],
+  "fill": [MockFunction],
+  "fillRect": [MockFunction],
+  "fillText": [MockFunction],
+  "getImageData": [MockFunction],
+  "getLineDash": [MockFunction],
+  "getTransform": [MockFunction],
+  "isPointInPath": [MockFunction],
+  "isPointInStroke": [MockFunction],
+  "lineTo": [MockFunction],
+  "measureText": [MockFunction],
+  "moveTo": [MockFunction],
+  "putImageData": [MockFunction],
+  "quadraticCurveTo": [MockFunction],
+  "rect": [MockFunction],
+  "removeHitRegion": [MockFunction],
+  "resetTransform": [MockFunction],
+  "restore": [MockFunction] {
+    "calls": Array [
+      Array [],
+    ],
+    "results": Array [
+      Object {
+        "type": "return",
+        "value": undefined,
+      },
+    ],
+  },
+  "rotate": [MockFunction],
+  "save": [MockFunction] {
+    "calls": Array [
+      Array [],
+    ],
+    "results": Array [
+      Object {
+        "type": "return",
+        "value": undefined,
+      },
+    ],
+  },
+  "scale": [MockFunction],
+  "scrollPathIntoView": [MockFunction],
+  "setLineDash": [MockFunction],
+  "setTransform": [MockFunction],
+  "stroke": [MockFunction],
+  "strokeRect": [MockFunction],
+  "strokeText": [MockFunction],
+  "transform": [MockFunction],
+  "translate": [MockFunction],
+}
+`;
