@@ -3,7 +3,7 @@ import { Sprite } from './baseObjects/sprite';
 
 /**
  * engine/context.ts
- * Manages the context
+ * Manages the context, here it's the context of a 2D canvas
  */
 export class Context {
     
@@ -45,11 +45,18 @@ export class Context {
     }
 
     /**
+     * Restores the context
+     */
+    public restore() : void{
+        this.context.restore();
+    }
+
+    /**
      * Draw a sprite into context
      * @param sprite Sprite to draw
      */
     public drawSprite(sprite: Sprite) : void {
-        this.context.drawImage(sprite, sprite.x, sprite.y, sprite.width, sprite.height);
+        this.context.drawImage(sprite.image, sprite.position.x, sprite.position.y, sprite.image.width, sprite.image.height);
     }
 }
 
