@@ -1,15 +1,15 @@
 import { gameEngine } from "../engine/gameEngine";
-import { Sprite } from "../engine/baseObjects/sprite";
-
-import * as testImage from './assets/test.jpg';
+import { RenderLayer } from "../engine/renderer/renderLayer";
+import { testSprite as testGameObject } from "./scene/gameobjects/testSprite";
 
 export class spaceinvaderz{
     private readonly gameEngine: gameEngine;
 
     constructor(private readonly canvas: HTMLCanvasElement){
         this.gameEngine = new gameEngine(canvas);
-
-        const testSprite : Sprite = new Sprite(testImage);
-        testSprite.onload = () => this.gameEngine.context.drawSprite(testSprite);
+        const testLayer = new RenderLayer('test');
+        this.gameEngine.renderer.addLayer(testLayer);
+        new testGameObject().registerToLayer(testLayer);
     }
 }
+
