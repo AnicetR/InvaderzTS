@@ -62,5 +62,12 @@ export class Renderer{
     addLayer(layer: RenderLayerInterface){
         this._layers.push(layer);
     }
+
+    /**
+     * get Layers of the rendering loop
+     */
+    get layers(): Array<RenderLayerInterface> {
+        return this._layers;
+    }
     
 }
