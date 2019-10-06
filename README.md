@@ -4,13 +4,13 @@ TS port of Invaderz project
 [![CircleCI](https://circleci.com/gh/AnicetR/InvaderzTS.svg?style=svg)](https://circleci.com/gh/AnicetR/InvaderzTS)
 
 Build : 
-``` yarn build
-```
-test : 
-``` yarn test
-```
-test coverage : 
-``` yarn testCoverage
-```
+`yarn build`
 
+test : 
+`yarn test`
+
+test coverage : 
+`yarn testCoverage`
+
+The main goal of this tiny project is to know TypeScript a little better.
 Still in progress.
