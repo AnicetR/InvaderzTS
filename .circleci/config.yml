@@ -55,7 +55,7 @@ jobs:
       # run tests!
       - run:
           name: "Get coverage infos"
-          command: jest --collectCoverage=true
+          command: yarn testCoverage
       - store_artifacts:
           path: coverage
 workflows:

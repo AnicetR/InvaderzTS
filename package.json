@@ -19,7 +19,8 @@
   "scripts": {
     "dev": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
-    "test": "jest"
+    "test": "jest",
+    "testCoverage": "jest --collectCoverage=true"
   },
   "jest": {
     "roots": [
