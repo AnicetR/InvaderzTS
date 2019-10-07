@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/index.ts",
   devtool: "source-map",
   resolve: {
-    extensions: [".ts", ".js", ".json", ".png", ".jpg", '.gif']
+    extensions: [".ts", ".tsx", ".js", ".json", ".png", ".jpg", '.gif', '.svg']
   },
   output: {
     path: path.join(__dirname, "/dist"),
@@ -14,7 +14,7 @@ module.exports = {
   module: {
     rules: [
       { 
-        test: /\.ts$/, 
+        test: /\.tsx?$/, 
         loader: "awesome-typescript-loader"
       },
       {
@@ -22,6 +22,14 @@ module.exports = {
         use: [
           'file-loader',
         ],
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.svg$/i,
+        use: ['svg-inline-loader'],
       },
     ]
   },
