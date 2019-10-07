@@ -13,4 +13,4 @@ test coverage :
 `yarn testCoverage`
 
 The main goal of this tiny project is to know TypeScript a little better.
-Still in progress.
+WIP
