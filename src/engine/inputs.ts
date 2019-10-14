@@ -1,3 +1,5 @@
+import { keyDownStore } from "./stores/inputs/keysDownStore";
+
 /**
  * Inputs Manages keyboard inputs.
  */
@@ -6,26 +8,20 @@ export class Inputs {
     /**
      * Current keys down
      */
-    public readonly keyCodesDown: Array<number> = [];
+    public readonly keysDown: any; 
 
     /**
      * defines document based callbacks
      */
     constructor(){
+        this.keysDown = keyDownStore.getInstance();
+
         document.onkeydown = (event) => {
-            const keyCode: number = event.keyCode;
-            const keyCodeIndex: number = this.keyCodesDown.indexOf(keyCode);
-            if(keyCodeIndex == -1){
-                this.keyCodesDown.push(keyCode)
-            }
+            this.keysDown.addKey(event.keyCode);
         }
 
         document.onkeyup = (event) => {
-            const keyCode: number = event.keyCode;
-            const keyCodeIndex: number = this.keyCodesDown.indexOf(keyCode);
-            if(keyCodeIndex >= -1){
-                this.keyCodesDown.splice(keyCodeIndex, 1);
-            }
+            this.keysDown.removeKey(event.keyCode);
         }
     }
 
@@ -34,7 +30,7 @@ export class Inputs {
      * @param keyCode 
      */
     isKeyDown(keyCode: number) : boolean {
-        return this.keyCodesDown.includes(keyCode);
+        return this.keysDown.store.getState().includes(keyCode);
     }
 
 }

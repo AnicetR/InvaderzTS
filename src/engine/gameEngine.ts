@@ -8,7 +8,7 @@ import { Inputs } from "./inputs";
 export class gameEngine{
     public readonly context : Context;
     public readonly renderer : Renderer;
-    public readonly inputs : Inputs
+    public readonly inputs : Inputs;
 
     /**
      * Construct and launch the gameEngine
