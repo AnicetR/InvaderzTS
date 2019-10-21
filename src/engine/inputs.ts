@@ -29,8 +29,9 @@ export class Inputs {
      * Check if a specific key is down or not
      * @param keyCode 
      */
-    isKeyDown(keyCode: number) : boolean {
-        return this.keysDown.store.getState().includes(keyCode);
+    isKeyDown(keyCode: number) : boolean 
+    {
+        return this.keysDown.state.includes(keyCode);
     }
 
 }
