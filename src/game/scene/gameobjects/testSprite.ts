@@ -14,7 +14,7 @@ export class testSprite extends gameObject{
         y: 0
     }
 
-    private speed: number = 0.7;
+    private velocity: number = 0.5;
 
     private inputs: Inputs;
     
@@ -39,8 +39,8 @@ export class testSprite extends gameObject{
         this.position.x -= speed;
     }
 
-    update(): void {
-        let speed: number = this.speed;
+    update(delta: number): void {
+        let speed: number = this.velocity * delta;
 
         if(this.inputs.isKeyDown(this.controls.leftShift)){
             speed = speed * 2;

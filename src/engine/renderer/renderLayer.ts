@@ -54,9 +54,19 @@ export class RenderLayer implements RenderLayerInterface{
         this.gameObjects.forEach(
             (gameObject: gameObjectInterface) => {
                 context.save();
-                gameObject.update();
                 gameObject.draw(context);
                 context.restore()
+            }
+        )
+    }
+
+    /**
+     * Updates the gameObjects
+     */
+    update(delta: number): void{
+        this.gameObjects.forEach(
+            (gameObject: gameObjectInterface) => {
+                gameObject.update(delta);
             }
         )
     }

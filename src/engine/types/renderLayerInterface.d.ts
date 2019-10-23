@@ -8,4 +8,5 @@ export interface RenderLayerInterface{
     addObject(gameObject: gameObjectInterface) : string
     removeObject(uuid: string) : void
     draw(context: Context) : void
+    update(delta: number) : void
 }

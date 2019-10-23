@@ -11,7 +11,7 @@ export interface gameObjectInterface{
     uuid: string;
     position: position;
     sprite: Sprite;
-    update(): void;
+    update(delta: number): void;
     draw(context: Context): void;
     registerToLayer(layer: RenderLayer): void;
 }

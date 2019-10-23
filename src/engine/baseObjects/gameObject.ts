@@ -43,7 +43,7 @@ export class gameObject implements gameObjectInterface{
     /**
      * Callback called before draw method in the rendering process
      */
-    update(): void {
+    update(delta: number): void {
         if(this.sprite.loaded == true){
            this.sprite.position = this.position;
         }

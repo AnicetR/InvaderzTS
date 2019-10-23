@@ -1,6 +1,7 @@
 import { Context } from "./context";
 import { Renderer } from "./renderer/renderer";
 import { Inputs } from "./inputs";
+import { gameLoop } from "./gameLoop";
 
 /**
  * gameEngine manager
@@ -9,6 +10,7 @@ export class gameEngine{
     public readonly context : Context;
     public readonly renderer : Renderer;
     public readonly inputs : Inputs;
+    public readonly gameLoop : gameLoop;
 
     /**
      * Construct and launch the gameEngine
@@ -16,7 +18,11 @@ export class gameEngine{
      */
     constructor(private readonly canvas: HTMLCanvasElement){
         this.context = new Context(this.canvas);
-        this.renderer = new Renderer(this.context);
+        
         this.inputs = new Inputs();
+        this.renderer = new Renderer(this.context);
+        this.gameLoop = new gameLoop(this.renderer);
+
+        this.gameLoop.start();
     }
 }

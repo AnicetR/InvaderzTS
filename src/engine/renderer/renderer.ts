@@ -6,52 +6,50 @@ import { Context } from "../context";
  */
 export class Renderer{
 
-    /**
-     * requestAnimationFrame window callback with polyfill
-     */
-    private readonly _requestAnimationFrame: CallableFunction = 
-        (window.requestAnimationFrame        ||
-        window.webkitRequestAnimationFrame  ||
-        function(callback: CallableFunction){
-            window.setTimeout( callback, 1000/60 );
-        }).bind(window);
     
+    
+    /**
+     * Animtion Frame ID, in case we have to stop rendering
+     */
+    private _requestAnimationFrameID: number;
+
     /**
      * Last render tick
      */    
-    private _tick : number;
+    private _tick : number = 0;
 
     /**
      * Rendering layers
      */
     private _layers: Array<RenderLayerInterface> = [];
 
-    constructor(private readonly context: Context){
-        this.updateTick();
-        this.render();
-    }
+    constructor(private readonly context: Context){}
 
     /**
      * Rendering loop
      */
-    private render(): void {
+    render(currentTick: number): void {
         this.context.clear();
         this._layers.forEach(layers => {
             layers.draw(this.context);
         })
-        this.updateTick();
-        this._requestAnimationFrame(this.render.bind(this));
+
+        this.updateTick(currentTick);
     }
 
     /**
      * get last rendering tick
      */
-    get lastTick(){
+    get lastTick(): number{
         return this._tick;
     }
 
-    private updateTick(){
-        this._tick = Date.now();
+    /**
+     * Pretty straight forward, isn't it ?
+     * @param currentTick 
+     */
+    private updateTick(currentTick: number): void{
+        this._tick = currentTick;
     }
 
     /**
@@ -59,7 +57,7 @@ export class Renderer{
      * Each layer has to be loaded in order
      * @param layer The RenderLayer to add in loop
      */
-    addLayer(layer: RenderLayerInterface){
+    addLayer(layer: RenderLayerInterface): void{
         this._layers.push(layer);
     }
 
