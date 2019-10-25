@@ -56,7 +56,7 @@ export class Context {
      * @param sprite Sprite to draw
      */
     public drawSprite(sprite: Sprite) : void {
-        this.context.drawImage(sprite.image, sprite.position.x, sprite.position.y, sprite.image.width, sprite.image.height);
+        this.context.drawImage(sprite.image, Math.round(sprite.position.x), Math.round(sprite.position.y), sprite.image.width, sprite.image.height);
     }
 }
 
