@@ -6,7 +6,7 @@ export class gameLoop{
     
 
     //The game loop will be iterated 30 times per second
-    private _loopIterationsPerSecond: number = 30;
+    private _loopIterationsPerSecond: number = 60;
     private _timeStep: number = 1000/this._loopIterationsPerSecond;
     
     private _isPaused: boolean = false;
