@@ -33,6 +33,11 @@ export class gameObject implements gameObjectInterface{
     sprite: Sprite;
 
     /**
+     * The sprite Collection of the object
+     */
+    spriteCollection: Array<Sprite>;
+
+    /**
      * is the object registered in a layer ?
      */
     private registered: boolean = false;
