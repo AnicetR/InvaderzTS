@@ -12,6 +12,8 @@ export class gameEngine{
     public readonly inputs : Inputs;
     public readonly gameLoop : gameLoop;
 
+    private static _instance: gameEngine;
+
     /**
      * Construct and launch the gameEngine
      * @param canvas 
@@ -24,5 +26,16 @@ export class gameEngine{
         this.gameLoop = new gameLoop(this.renderer);
 
         this.gameLoop.start();
+    }
+
+    static getInstance(canvas?: HTMLCanvasElement): gameEngine {
+        if(typeof canvas === typeof undefined
+            && typeof gameEngine._instance === typeof undefined){
+                throw new Error('if gameEngine has not been initialized, you must specify the canvas argument');
+            }
+        if(typeof gameEngine._instance === typeof undefined){
+            return gameEngine._instance = new gameEngine(canvas);
+        }          
+        return gameEngine._instance;
     }
 }
