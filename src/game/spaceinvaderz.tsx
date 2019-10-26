@@ -1,19 +1,17 @@
 import { gameEngine } from "../engine/gameEngine";
-import { RenderLayer } from "../engine/renderer/renderLayer";
-import { testSprite as testGameObject } from "./scene/gameobjects/testSprite";
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import UI from './ui/ui';
+import { devScene } from "./scene/devScene";
 
 export class spaceinvaderz{
     private readonly gameEngine: gameEngine;
 
     constructor(private readonly canvas: HTMLCanvasElement){
-        this.gameEngine = new gameEngine(canvas);
-        const testLayer = new RenderLayer('test');
-        this.gameEngine.renderer.addLayer(testLayer);
-        new testGameObject().registerToLayer(testLayer);
+        this.gameEngine = gameEngine.getInstance(canvas);
+        
+        new devScene(this.gameEngine);
 
         const uiContainer: HTMLElement = document.getElementById('ui');
 
