@@ -1,0 +1,24 @@
+.debug-container{
+    height: 100%;
+    position: absolute;
+    opacity: 0.7;
+}
+.content{
+    float: left;
+    background: #293039;
+    border-right: 1px solid #FFFFFF;
+    /* transition: margin ease-in-out 0.5s; */
+    height: 100%;
+    width: 30%;
+    margin-left: -30%;
+}
+.content.show{
+    margin-left: 0;
+}
+
+.toggle-button{
+    border: 0;
+    background: none;
+    color: white;
+    float: left;
+}
