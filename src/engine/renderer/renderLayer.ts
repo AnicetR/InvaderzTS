@@ -55,7 +55,13 @@ export class RenderLayer implements RenderLayerInterface{
             (gameObject: gameObjectInterface) => {
                 context.save();
                 gameObject.draw(context);
-                context.restore()
+                context.restore();
+                if(    gameObject.position.x > context.boundaries.maxX + 500
+                    || gameObject.position.y > context.boundaries.maxY + 500
+                    || gameObject.position.x < -500
+                    || gameObject.position.y < -500){
+                        this.removeObject(gameObject.uuid)
+                    }
             }
         )
     }
