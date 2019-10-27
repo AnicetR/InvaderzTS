@@ -1,0 +1,26 @@
+$color: #ac3939;
+$background-color: #f7fdff;
+$border-color: #ffcc00;
+
+
+.big-button{
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+
+    font-family: GROBOLD;
+    font-size: 40px;
+    line-height: 60px;
+    color: $color;
+    text-align: center;
+
+    background: $background-color;
+    border: 6px solid $border-color;
+    border-radius: 10px;
+
+    transition: all ease-in-out 0.05s;
+
+    &:hover{
+        font-size: 45px;
+    }
+}

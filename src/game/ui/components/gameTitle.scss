@@ -1,0 +1,26 @@
+$color: #f7fdff;
+$drop-color: #ac3939;
+$secondary-color: #ffcc00;
+
+
+h2{
+    font-family: GROBOLD;
+    text-align: center;
+    color: $color;
+    font-size: 90px;
+    text-shadow: 0px 1px 0 $drop-color,
+                0px 2px 0 $drop-color,
+                0px 3px 0 $drop-color,
+                0px 4px 0 $drop-color,
+                0px 5px 0 $drop-color,
+                0px 6px 0 $drop-color,
+                0px 7px 0 $drop-color,
+                0px 8px 0 $drop-color,
+                0px 9px 0 $drop-color,
+                0px 10px 0 $drop-color,
+                0px 11px 0 $drop-color;
+
+    .secondary{
+        color: $secondary-color;
+    }    
+}
