@@ -10,6 +10,7 @@ import * as playerShipLeft from "../../assets/sprites/playership/playerLeft.png"
 import { Inputs } from "../../../engine/inputs";
 import { boundaries } from "../../../engine/types/contextTypes";
 import { gameEngine } from "../../../engine/gameEngine";
+import { rectCollisionBox } from "../../../engine/collisions/rectCollisionBox";
 
 export class playerShip extends gameObject{
     spriteCollection: Array<Sprite>;
@@ -29,6 +30,14 @@ export class playerShip extends gameObject{
             max: gameEngine.getInstance().context.boundaries.maxY - 40
         }
     }
+
+    collisionBox: rectCollisionBox = new rectCollisionBox(
+        100,
+        100,
+        'playerShip',
+        ['ennemy'],
+        this.onCollide
+    );
 
     private velocity: number = 0.25;
 
@@ -110,7 +119,11 @@ export class playerShip extends gameObject{
             }
         }
         if(this.sprite.loaded){
-            this.sprite.position = this.position;
+            this.sprite.position = this.collisionBox.position = this.position;
         }
+    }
+
+    onCollide(){
+        console.log('collision !'+performance.now());
     }
 }

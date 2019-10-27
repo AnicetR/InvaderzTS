@@ -3,6 +3,9 @@ import { position, gameObjectInterface } from "../types/gameObjectTypes";
 import { Sprite } from "./sprite";
 import { Context } from "../context";
 import { RenderLayer } from "../renderer/renderLayer";
+import { collisionManager } from "../collisions/collisionManager";
+import { collisionBoxInterface } from "../types/collisionTypes";
+import { rectCollisionBox } from "../collisions/rectCollisionBox";
 
 /**
  * gameObject base class
@@ -42,7 +45,12 @@ export class gameObject implements gameObjectInterface{
      */
     private registered: boolean = false;
 
+    collisionBox: collisionBoxInterface;
+
     constructor(){
+        if(this.collisionBox){
+            collisionManager.instance.addCollision(this.collisionBox);
+        }
     }
 
     /**

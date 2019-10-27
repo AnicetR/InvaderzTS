@@ -1,5 +1,6 @@
 import { Renderer } from "./renderer/renderer";
 import { fpsHistoryStore } from "./stores/debug/fpsHistoryStore";
+import { collisionManager } from "./collisions/collisionManager";
 
 export class gameLoop{
 
@@ -26,6 +27,11 @@ export class gameLoop{
             window.setTimeout( callback(Date.now()), 1000/this._loopIterationsPerSecond );
         }).bind(window);
     
+    
+     /**
+     * collision
+     */
+    private readonly _collisionManager: collisionManager = collisionManager.instance;
 
     constructor(private readonly _renderer: Renderer){
         this._frameStore = fpsHistoryStore.getInstance();
@@ -72,6 +78,8 @@ export class gameLoop{
     private updateLayers(): void
     {
         this._renderer.layers.forEach((layer) => layer.update(this._delta));
+         //Check for collision after every update
+         this._collisionManager.checkForCollision();
     }
 
 }
