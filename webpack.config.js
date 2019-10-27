@@ -24,13 +24,19 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.s[ac]ss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.svg$/i,
         use: ['svg-inline-loader'],
       },
+      {
+        test: /\.ttf$/i,
+        use: [
+          'file-loader',
+        ],
+      }
     ]
   },
   plugins: [

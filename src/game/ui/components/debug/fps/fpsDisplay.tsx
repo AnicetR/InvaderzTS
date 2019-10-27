@@ -1,5 +1,5 @@
 import React = require('react');
-import './fpsDisplay.css';
+import './fpsDisplay.scss';
 
 import { useStore } from 'effector-react'
 

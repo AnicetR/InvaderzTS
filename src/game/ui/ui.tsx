@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './ui.css';
+import './ui.scss';
 import { DebugContainer } from './components/debug/debugContainer';
 
 function UI() {

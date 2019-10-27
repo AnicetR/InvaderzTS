@@ -1,5 +1,5 @@
 import React = require('react');
-import './debugContainer.css';
+import './debugContainer.scss';
 import { FpsDisplay } from './fps/fpsDisplay';
 import { FpsHistogram } from './fps/fpsHistogram';
 import { useState } from 'react';
