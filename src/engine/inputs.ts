@@ -14,7 +14,7 @@ export class Inputs {
      * defines document based callbacks
      */
     constructor(){
-        this.keysDown = keyDownStore.getInstance();
+        this.keysDown = keyDownStore.instance;
 
         document.onkeydown = (event) => {
             this.keysDown.addKey(event.keyCode);

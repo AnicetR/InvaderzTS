@@ -34,7 +34,7 @@ export class gameLoop{
     private readonly _collisionManager: collisionManager = collisionManager.instance;
 
     constructor(private readonly _renderer: Renderer){
-        this._frameStore = fpsHistoryStore.getInstance();
+        this._frameStore = fpsHistoryStore.instance;
     }
 
     start() : void{

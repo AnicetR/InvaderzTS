@@ -1,7 +1,7 @@
 import {createStore, createStoreObject, createEvent, Store} from 'effector'
 
 export class keyDownStore{
-  private static instance: keyDownStore;
+  private static _instance: keyDownStore;
   private _store : any;
   private _baseContext: Array<number> = [];
   public readonly addKey: any;
@@ -36,12 +36,10 @@ export class keyDownStore{
   /**
    * Instanciate or returns the instance
    */
-  static getInstance(): keyDownStore {
-    if(!keyDownStore.instance){
-      keyDownStore.instance = new keyDownStore();
-    }
-
-    return keyDownStore.instance;
+  static get instance(): keyDownStore {
+    return !keyDownStore._instance ? 
+              keyDownStore._instance = new keyDownStore()
+              : keyDownStore._instance;
   }
 
   /**

@@ -2,7 +2,7 @@ import {createStore, createStoreObject, createEvent, Store} from 'effector'
 import { number } from 'prop-types';
 
 export class fpsHistoryStore{
-  private static instance: fpsHistoryStore;
+  private static _instance: fpsHistoryStore;
   private _store : any;
   private _baseContext: Array<number> = [];
   addFps: any;
@@ -36,12 +36,10 @@ export class fpsHistoryStore{
   /**
    * Instanciate or returns the instance
    */
-  static getInstance(): fpsHistoryStore {
-    if(!fpsHistoryStore.instance){
-      fpsHistoryStore.instance = new fpsHistoryStore();
-    }
-
-    return fpsHistoryStore.instance;
+  static get instance(): fpsHistoryStore {
+    return !fpsHistoryStore._instance ? 
+              fpsHistoryStore._instance = new fpsHistoryStore() 
+              : fpsHistoryStore._instance;
   }
 
   /**
@@ -80,7 +78,7 @@ export class fpsHistoryStore{
    * Returns a FPS Histogram of the last 1800 fpss
    */
 
-export const FpsHistogramList = fpsHistoryStore.getInstance().store.map(
+export const FpsHistogramList = fpsHistoryStore.instance.store.map(
   (fpsHistory: Array<any>) => {
       return fpsHistory[0].map((fps: number, key: number) => {
         return {key: key, fps: fps};
