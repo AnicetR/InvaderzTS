@@ -50,11 +50,11 @@ test('gameObject.registerLayer', () => {
     gameObjectInstance.registerToLayer(layer);
 
     let uuid: string;
-    layer.gameObjects.forEach((gameObject) => {
-        if(gameObject.uuid == gameObjectInstance.uuid){
+    for(const [GOuuid, gameObject] of layer.gameObjectsCollection){
+        if(GOuuid == gameObjectInstance.uuid){
             uuid = gameObject.uuid;
         }
-    })
+    }
 
     expect(uuid).not.toBeUndefined;
 })

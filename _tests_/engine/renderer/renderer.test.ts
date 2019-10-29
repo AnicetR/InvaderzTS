@@ -11,7 +11,7 @@ const renderer: Renderer = new Renderer(context);
 test('renderer.addLayer', () => {
     const layer: RenderLayer = new RenderLayer('testLayer');
     renderer.addLayer(layer);
-    expect(renderer.layers).toContain(layer);
+    expect(renderer.layers.has(layer.name)).toBe(true);
 })
 
 test('renderer.tickUpdate', () => {
