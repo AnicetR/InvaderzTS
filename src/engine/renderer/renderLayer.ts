@@ -15,7 +15,7 @@ export class RenderLayer implements RenderLayerInterface{
     /**
      * contains all gameObjectInterface to be rendered in the current layer
      */
-    gameObjects: Array<gameObjectInterface> = [];
+    gameObjectsCollection:  Map<string, gameObjectInterface> =  new Map();
     
 
     constructor(name: string){
@@ -28,7 +28,7 @@ export class RenderLayer implements RenderLayerInterface{
      */
     addObject(gameObject: gameObjectInterface): string {
         const GOuuid = uuid();
-        this.gameObjects.push(gameObject);
+        this.gameObjectsCollection.set(GOuuid, gameObject);
         return GOuuid;
     }
 
@@ -36,14 +36,10 @@ export class RenderLayer implements RenderLayerInterface{
      * Removes an object to the layer
      * @param gameObject gameObject to remove from the layer
      */
-    removeObject(GOuuid: string): void {
-        this.gameObjects.forEach(
-            (gameObject : gameObjectInterface, index: number) => {
-                if(gameObject.uuid == GOuuid){
-                    this.gameObjects.splice(index, 1)
-                }
-            }
-        )
+    removeObject(gameObject: gameObjectInterface): void {
+        if(this.gameObjectsCollection.has(gameObject.uuid)){
+            this.gameObjectsCollection.delete(gameObject.uuid)
+        }
     }
 
     /**
@@ -51,7 +47,7 @@ export class RenderLayer implements RenderLayerInterface{
      * @param context Context to draw in
      */
     draw(context: Context): void {
-        this.gameObjects.forEach(
+        this.gameObjectsCollection.forEach(
             (gameObject: gameObjectInterface) => {
                 context.save();
                 gameObject.draw(context);
@@ -60,7 +56,7 @@ export class RenderLayer implements RenderLayerInterface{
                     || gameObject.position.y > context.boundaries.maxY + 500
                     || gameObject.position.x < -500
                     || gameObject.position.y < -500){
-                        this.removeObject(gameObject.uuid)
+                        this.removeObject(gameObject)
                     }
             }
         )
@@ -70,7 +66,7 @@ export class RenderLayer implements RenderLayerInterface{
      * Updates the gameObjects
      */
     update(delta: number): void{
-        this.gameObjects.forEach(
+        this.gameObjectsCollection.forEach(
             (gameObject: gameObjectInterface) => {
                 gameObject.update(delta);
             }

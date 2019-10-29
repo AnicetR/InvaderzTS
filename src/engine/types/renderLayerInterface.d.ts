@@ -3,10 +3,10 @@ import { gameObjectInterface } from "./gameObjectTypes";
 
 export interface RenderLayerInterface{
     name: string;
-    gameObjects: Array<gameObjectInterface>;
+    gameObjectsCollection: Map<string, gameObjectInterface>;
 
     addObject(gameObject: gameObjectInterface) : string
-    removeObject(uuid: string) : void
+    removeObject(gameObject: gameObjectInterface) : void
     draw(context: Context) : void
     update(delta: number) : void
 }

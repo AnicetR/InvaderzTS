@@ -9,7 +9,7 @@ export class collisionManager{
     /**
      * CollisionBox store, every collisionbox on game is registered here
      */
-    private store: Map<string, collisionBoxInterface> = new Map();
+    private collisionCollection: Map<string, collisionBoxInterface> = new Map();
     
     /**
      * Collisionmanager instance
@@ -28,7 +28,7 @@ export class collisionManager{
      */
     addCollision(collisionBox: collisionBoxInterface) : string{
         const collisionBoxUuid = uuid();
-        this.store.set(collisionBoxUuid, collisionBox);
+        this.collisionCollection.set(collisionBoxUuid, collisionBox);
         return collisionBoxUuid;
     }
 
@@ -38,8 +38,8 @@ export class collisionManager{
      */
     removeCollision(collisionBox: collisionBoxInterface){
         if( typeof collisionBox !== typeof undefined
-            && this.store.has(collisionBox.uuid)){
-            this.store.delete(collisionBox.uuid)
+            && this.collisionCollection.has(collisionBox.uuid)){
+            this.collisionCollection.delete(collisionBox.uuid)
         }
     }
 
@@ -47,8 +47,8 @@ export class collisionManager{
      * check if any collisionBox in the map is colliding with another, and call the "onCollide" callback if it's the case
      */
     checkForCollision(){
-        for(const [collisionBoxUuid, collisionBox] of this.store){
-            for(const [secondCollisionBoxUuid, secondCollisionBox] of this.store){   
+        for(const [collisionBoxUuid, collisionBox] of this.collisionCollection){
+            for(const [secondCollisionBoxUuid, secondCollisionBox] of this.collisionCollection){   
 
                 if(typeof secondCollisionBox !== typeof undefined 
                     && typeof collisionBox !== typeof undefined

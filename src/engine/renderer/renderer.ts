@@ -21,7 +21,7 @@ export class Renderer{
     /**
      * Rendering layers
      */
-    private _layers: Array<RenderLayerInterface> = [];
+    private _layersCollection: Map<string, RenderLayerInterface> = new Map();
 
     constructor(private readonly context: Context){}
 
@@ -30,10 +30,9 @@ export class Renderer{
      */
     render(currentTick: number): void {
         this.context.clear();
-        this._layers.forEach(layers => {
-            layers.draw(this.context);
-        })
-
+        for(const [layerName, layer] of this._layersCollection){
+            layer.draw(this.context);
+        }
         this.updateTick(currentTick);
     }
 
@@ -58,14 +57,14 @@ export class Renderer{
      * @param layer The RenderLayer to add in loop
      */
     addLayer(layer: RenderLayerInterface): void{
-        this._layers.push(layer);
+        this._layersCollection.set(layer.name, layer);
     }
 
     /**
      * get Layers of the rendering loop
      */
-    get layers(): Array<RenderLayerInterface> {
-        return this._layers;
+    get layers(): Map<string, RenderLayerInterface> {
+        return this._layersCollection;
     }
     
 }
