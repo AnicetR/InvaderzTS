@@ -1,5 +1,6 @@
 import { collisionBoxInterface, collisionBoxShape } from "../types/collisionTypes";
 import { uuid } from "../utils/uuid";
+import { symbolSquare } from "d3-shape";
 
 /**
  * An extremely simple not optimized collision manager
@@ -9,6 +10,7 @@ export class collisionManager{
      * CollisionBox store, every collisionbox on game is registered here
      */
     private store: Map<string, collisionBoxInterface> = new Map();
+    
     /**
      * Collisionmanager instance
      */
@@ -52,11 +54,16 @@ export class collisionManager{
                     && typeof collisionBox !== typeof undefined
                     && secondCollisionBox.uuid !== collisionBox.uuid
                     ){
-                    if((typeof collisionBox.collideWith == typeof "" && collisionBox.collideWith == secondCollisionBox.type)
+                    if(
+                        (typeof collisionBox.collideWith == typeof "" 
+                            && collisionBox.collideWith == secondCollisionBox.type)
                         || !collisionBox.collideWith.includes(secondCollisionBox.type)
+                        || (collisionBox.position.x == 0 && collisionBox.position.y == 0 
+                            && secondCollisionBox.position.x == 0 && secondCollisionBox.position.y == 0)
                     ){
                         break;
                     }
+                          
                     if(this.checkForCollisionRectWithRect(collisionBox, secondCollisionBox)){
                         collisionBox.onCollide();
                         secondCollisionBox.onCollide();
@@ -66,9 +73,9 @@ export class collisionManager{
         }
     }
 
-    private checkForCollisionRectWithRect(square: collisionBoxInterface, square2: collisionBoxInterface) : boolean{
+    private checkForCollisionRectWithRect(square: collisionBoxInterface, square2: collisionBoxInterface) : boolean {
         return (
-            square.position.x < square2.position.x + square2.width
+               square.position.x < square2.position.x + square2.width
             && square.position.x + square.width > square2.position.x
             && square.position.y < square2.position.y + square2.height
             && square.position.y + square.height > square2.position.y
