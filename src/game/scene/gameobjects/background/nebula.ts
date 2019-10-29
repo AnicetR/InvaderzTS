@@ -3,7 +3,7 @@ import { gameObject } from "../../../../engine/baseObjects/gameObject";
 import { Sprite } from "../../../../engine/baseObjects/sprite";
 import { position } from "../../../../engine/types/gameObjectTypes";
 
-import * as nebulaImage from "../../../assets/sprites/nebula.png";
+import * as nebulaImage from "../../../assets/sprites/background/nebula.png";
 
 export class nebula extends gameObject{
     spriteCollection: Array<Sprite>;

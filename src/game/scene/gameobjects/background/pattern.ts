@@ -2,7 +2,7 @@
 import { gameObject } from "../../../../engine/baseObjects/gameObject";
 import { Sprite } from "../../../../engine/baseObjects/sprite";
 import { position } from "../../../../engine/types/gameObjectTypes";
-import * as backgroundImagePath from "../../../assets/sprites/starBackground.png";
+import * as backgroundImagePath from "../../../assets/sprites/background/starBackground.png";
 import { Context } from "../../../../engine/context";
 
 export class pattern extends gameObject{

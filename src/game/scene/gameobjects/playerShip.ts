@@ -3,12 +3,11 @@ import { gameObject } from "../../../engine/baseObjects/gameObject";
 import { Sprite } from "../../../engine/baseObjects/sprite";
 import { position } from "../../../engine/types/gameObjectTypes";
 
-import * as playerShipNormal from "../../assets/sprites/playership/player.png";
-import * as playerShipRight from "../../assets/sprites/playership/playerRight.png";
-import * as playerShipLeft from "../../assets/sprites/playership/playerLeft.png";
+import * as playerShipNormal from "../../assets/sprites/ships/playership/player.png";
+import * as playerShipRight from "../../assets/sprites/ships/playership/playerRight.png";
+import * as playerShipLeft from "../../assets/sprites/ships/playership/playerLeft.png";
 
 import { Inputs } from "../../../engine/inputs";
-import { boundaries } from "../../../engine/types/contextTypes";
 import { gameEngine } from "../../../engine/gameEngine";
 import { rectCollisionBox } from "../../../engine/collisions/rectCollisionBox";
 

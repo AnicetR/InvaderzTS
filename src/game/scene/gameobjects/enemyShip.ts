@@ -3,49 +3,55 @@ import { gameObject } from "../../../engine/baseObjects/gameObject";
 import { Sprite } from "../../../engine/baseObjects/sprite";
 import { position } from "../../../engine/types/gameObjectTypes";
 
-import * as playerShipNormal from "../../assets/sprites/playership/player.png";
-import * as playerShipRight from "../../assets/sprites/playership/playerRight.png";
-import * as playerShipLeft from "../../assets/sprites/playership/playerLeft.png";
+import * as ennemyShipSprite from "../../assets/sprites/ships/enemy1.png";
 
 import { gameEngine } from "../../../engine/gameEngine";
 import { rectCollisionBox } from "../../../engine/collisions/rectCollisionBox";
 import { collisionManager } from "../../../engine/collisions/collisionManager";
 
 export class ennemyShip extends gameObject{
-    spriteCollection: Array<Sprite>;
 
     position: position = {
         x: gameEngine.getInstance().context.boundaries.maxX / 2,
-        y: gameEngine.getInstance().context.boundaries.maxY / 2
+        y: 10
     }
 
-
     collisionBox: rectCollisionBox = new rectCollisionBox(
-        100,
-        100,
+        10,
+        10,
         'ennemy',
         ['playership'],
         (() => {this.onCollide()}).bind(this)
     );
 
+    movementAngle: number = 0;
+    movementAngleMax: number = 360;
+    movementRadius: number = 1.5;
+
     constructor(){
         super();
-        this.spriteCollection = [
-            new Sprite(playerShipNormal),
-            new Sprite(playerShipLeft),
-            new Sprite(playerShipRight),
-        ];
 
-        this.sprite = this.spriteCollection[0];
+        this.sprite = new Sprite(ennemyShipSprite);
+    }
+
+    private movement(velocity: number){
+        this.movementAngle += velocity;
+        if(this.movementAngle > this.movementAngleMax){
+            this.movementAngle = 0;
+        }
+        this.position.x = this.position.x + Math.cos(this.movementAngle)*this.movementRadius;
+        this.position.y = this.position.y + Math.sin(this.movementAngle)*this.movementRadius + 0.5;
     }
 
     update(delta: number): void {
+        this.movement(0.02);
         if(this.sprite.loaded){
             this.sprite.position = this.collisionBox.position = this.position;
         }
     }
 
     onCollide(){
+        console.log('BANG')
         collisionManager.instance.removeCollision(this.collisionBox);
     }
 }
