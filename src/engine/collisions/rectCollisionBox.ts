@@ -18,4 +18,8 @@ export class rectCollisionBox implements collisionBoxInterface{
         ){
         this.uuid = collisionManager.instance.addCollision(this);
     }
+
+    destroy() : void {
+        collisionManager.instance.removeCollision(this)
+    }
 }

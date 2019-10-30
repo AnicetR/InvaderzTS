@@ -10,6 +10,8 @@ export interface collisionBoxInterface {
     type: string,
     collideWith: Array<string>|string,
     onCollide: CallableFunction;
+
+    destroy(): void;
 }
 
 export enum collisionBoxShape {
