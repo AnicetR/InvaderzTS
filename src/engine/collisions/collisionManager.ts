@@ -58,12 +58,13 @@ export class collisionManager{
                         (typeof collisionBox.collideWith == typeof "" 
                             && collisionBox.collideWith == secondCollisionBox.type)
                         || !collisionBox.collideWith.includes(secondCollisionBox.type)
+                        || !secondCollisionBox.collideWith.includes(collisionBox.type)
                         || (collisionBox.position.x == 0 && collisionBox.position.y == 0 
                             && secondCollisionBox.position.x == 0 && secondCollisionBox.position.y == 0)
-                    ){
-                        break;
+                    ){  
+                        continue;
                     }
-                          
+                   
                     if(this.checkForCollisionRectWithRect(collisionBox, secondCollisionBox)){
                         collisionBox.onCollide();
                         secondCollisionBox.onCollide();
