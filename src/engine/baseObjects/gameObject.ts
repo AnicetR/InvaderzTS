@@ -20,7 +20,7 @@ export class gameObject implements gameObjectInterface{
     /**
      * RenderLayer in wich the gameObject is rendered
      */
-    renderLayerName: string;
+    renderLayer: RenderLayer;
     
     /**
      * x-y position of the object
@@ -77,6 +77,7 @@ export class gameObject implements gameObjectInterface{
      */
     registerToLayer(layer: RenderLayer): void {
         this.uuid = layer.addObject(this);
+        this.renderLayer = layer;
     }
 
 
