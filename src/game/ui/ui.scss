@@ -4,8 +4,9 @@
 }
 
 .UI {
-    height: 100%;
+    height: calc(100% - 40px);
     width: 100%;
     position: relative;
     border: 4px solid #171D24;
+    padding-top: 20px;
   }

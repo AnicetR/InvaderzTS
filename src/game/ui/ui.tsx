@@ -1,12 +1,21 @@
 import * as React from 'react';
 import './ui.scss';
 import { DebugContainer } from './components/debug/debugContainer';
-import { GameTitle } from './components/gameTitle';
-import { BigButton } from './components/bigButton';
+import { LifeBar } from './components/gameplay/lives/lifeBar';
+
+import { Container, Row, Col } from 'react-grid-system';
 
 function UI() {
   return (
     <div className="UI">
+      <Container>
+        <Row>
+          <Col sm={5}>
+            <LifeBar />
+          </Col>
+        </Row>
+      </Container>
+      <DebugContainer/>
     </div>
   );
 }

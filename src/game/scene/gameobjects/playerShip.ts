@@ -10,6 +10,7 @@ import * as playerShipLeft from "../../assets/sprites/ships/playership/playerLef
 import { Inputs } from "../../../engine/inputs";
 import { gameEngine } from "../../../engine/gameEngine";
 import { rectCollisionBox } from "../../../engine/collisions/rectCollisionBox";
+import { PlayerLives } from "../../stores/playerLives";
 
 export class playerShip extends gameObject{
     spriteCollection: Array<Sprite>;
@@ -123,6 +124,7 @@ export class playerShip extends gameObject{
     }
 
     onCollide(){
+        PlayerLives.instance.subLife(1);
         console.log('collision !'+performance.now());
     }
 }
