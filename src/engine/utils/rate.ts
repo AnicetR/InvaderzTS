@@ -7,7 +7,7 @@ export class Rate{
 
     do(callback: CallableFunction){
         let currentTime = performance.now();
-        if(typeof this.lastExec !== typeof undefined || (this.lastExec + this.eachMs) >= currentTime){
+        if(typeof this.lastExec == typeof undefined || (this.lastExec + this.eachMs) <= currentTime){
             callback();
             this.lastExec = currentTime;
         }
