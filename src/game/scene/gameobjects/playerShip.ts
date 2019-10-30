@@ -11,6 +11,8 @@ import { Inputs } from "../../../engine/inputs";
 import { gameEngine } from "../../../engine/gameEngine";
 import { rectCollisionBox } from "../../../engine/collisions/rectCollisionBox";
 import { PlayerLives } from "../../stores/playerLives";
+import { laser, laserDirection } from "./projectiles/laser";
+import { Rate } from "../../../engine/utils/rate";
 
 export class playerShip extends gameObject{
     spriteCollection: Array<Sprite>;
@@ -48,8 +50,11 @@ export class playerShip extends gameObject{
         right: 39,
         down: 40,
         up: 38,
-        leftShift: 16
+        leftShift: 16,
+        space: 32
     }
+
+    private fireRate: Rate = new Rate(250);
 
     constructor(){
         super();
@@ -113,18 +118,31 @@ export class playerShip extends gameObject{
             this.moveDown(speed);
         }
 
+        if(this.inputs.isKeyDown(this.controls.space)){
+            
+            this.fireRate.do(() => {
+                                        const laserP = new laser(this.position, 1, laserDirection.top);
+                                        laserP.registerToLayer(this.renderLayer);
+                                    }
+                );
+        }
+
         if(!this.inputs.isKeyDown(this.controls.left) && !this.inputs.isKeyDown(this.controls.right)){
             if(this.sprite !== this.spriteCollection[0]){
                 this.sprite = this.spriteCollection[0];
             }
         }
         if(this.sprite.loaded){
-            this.sprite.position = this.collisionBox.position = this.position;
+            this.sprite.position = this.collisionBox.position = {
+                y: this.position.y,
+                x: this.position.x - (this.sprite.image.width/2)
+            };
         }
     }
 
     onCollide(){
         PlayerLives.instance.subLife(1);
+        console.log(PlayerLives.store.getState());
         console.log('collision !'+performance.now());
     }
 }

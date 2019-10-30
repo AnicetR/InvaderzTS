@@ -17,11 +17,11 @@ export class ennemyShip extends gameObject{
     }
 
     collisionBox: rectCollisionBox = new rectCollisionBox(
-        10,
-        10,
+        40,
+        60,
         'ennemy',
-        ['playership'],
-        (() => {this.onCollide()}).bind(this)
+        ['playership', 'laser'],
+        this.onCollide.bind(this)
     );
 
     movementAngle: number = 0;
@@ -44,7 +44,7 @@ export class ennemyShip extends gameObject{
     }
 
     update(delta: number): void {
-        this.movement(0.02);
+        // this.movement(0.02);
         if(this.sprite.loaded){
             this.sprite.position = this.collisionBox.position = this.position;
         }
@@ -52,6 +52,6 @@ export class ennemyShip extends gameObject{
 
     onCollide(){
         console.log('BANG')
-        collisionManager.instance.removeCollision(this.collisionBox);
+        //collisionManager.instance.removeCollision(this.collisionBox);
     }
 }
