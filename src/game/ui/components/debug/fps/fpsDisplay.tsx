@@ -12,7 +12,7 @@ export const FpsDisplay = () => {
     return (
         <div className="fps-display">
             <span>
-                {lastFps}
+                {lastFps} FPS
             </span>
         </div>
     )

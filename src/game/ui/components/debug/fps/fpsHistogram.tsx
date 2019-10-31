@@ -1,5 +1,5 @@
 import React = require('react');
-import './fpsDisplay.scss';
+import './fpsHistogram.scss';
 
 import { useStore } from 'effector-react'
 
@@ -10,14 +10,13 @@ export const FpsHistogram = () => {
     const fpsHistogramData = useStore(FpsHistogramList);
     return (
         <div className="fps-histogram">
-            <AreaChart height={50} data={fpsHistogramData}>
-            <CartesianGrid strokeDasharray="3 3" />
+            <AreaChart height={50} width={200} data={fpsHistogramData}>
+                <CartesianGrid strokeDasharray="3 3" />
                 <YAxis />
                 <Tooltip />
                 <Area dataKey="fps" fill="red" isAnimationActive={false} />
             </AreaChart>
         </div>
-        
     )
 }
 
