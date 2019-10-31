@@ -13,6 +13,7 @@ import { rectCollisionBox } from "../../../engine/collisions/rectCollisionBox";
 import { PlayerLives } from "../../stores/playerLives";
 import { laser, laserDirection } from "./projectiles/laser";
 import { Rate } from "../../../engine/utils/rate";
+import { Score } from "../../stores/score";
 
 export class playerShip extends gameObject{
     spriteCollection: Array<Sprite>;
@@ -55,6 +56,10 @@ export class playerShip extends gameObject{
     }
 
     private fireRate: Rate = new Rate(250);
+
+    _scoreOverTime: Rate = new Rate(200);
+    _scoreToAdd: number = 1;
+
 
     constructor(){
         super();
@@ -138,6 +143,8 @@ export class playerShip extends gameObject{
                 x: this.position.x - (this.sprite.image.width/2)
             };
         }
+
+        this._scoreOverTime.do(() => Score.instance.addPoints(this._scoreToAdd));
     }
 
     onCollide(){

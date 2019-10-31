@@ -8,6 +8,7 @@ import * as ennemyShipSprite from "../../assets/sprites/ships/enemy1.png";
 import { gameEngine } from "../../../engine/gameEngine";
 import { rectCollisionBox } from "../../../engine/collisions/rectCollisionBox";
 import { collisionManager } from "../../../engine/collisions/collisionManager";
+import { Score } from "../../stores/score";
 
 export class ennemyShip extends gameObject{
 
@@ -44,7 +45,7 @@ export class ennemyShip extends gameObject{
     }
 
     update(delta: number): void {
-        // this.movement(0.02);
+        this.movement(0.02);
         if(this.sprite.loaded){
             this.sprite.position = this.collisionBox.position = this.position;
         }
@@ -52,6 +53,11 @@ export class ennemyShip extends gameObject{
 
     onCollide(){
         console.log('BANG')
+        this.destroy();
         //collisionManager.instance.removeCollision(this.collisionBox);
+    }
+
+    destroy(){
+        Score.instance.addPoints(150);
     }
 }
