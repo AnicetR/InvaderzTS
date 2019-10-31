@@ -104,10 +104,10 @@ export class laser extends gameObject{
 
     onCollide(){
         this.isExploding = true;
+        this.collisionBox.destroy();
     }
 
     destroy(){
-        this.collisionBox.destroy();
         this.renderLayer.removeObject(this);
     }
 }
