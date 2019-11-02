@@ -4,22 +4,28 @@ import { Sprite } from "../../../engine/baseObjects/sprite";
 import { position } from "../../../engine/types/gameObjectTypes";
 
 import * as ennemyShipSprite from "../../assets/sprites/ships/enemy1.png";
+import * as ennemyShipSpriteDamage1 from "../../assets/sprites/ships/enemy1_damage_1.png";
+import * as ennemyShipSpriteDamage2 from "../../assets/sprites/ships/enemy1_damage_2.png";
 
 import { gameEngine } from "../../../engine/gameEngine";
 import { rectCollisionBox } from "../../../engine/collisions/rectCollisionBox";
 import { collisionManager } from "../../../engine/collisions/collisionManager";
 import { Score } from "../../stores/score";
+import { Rate } from "../../../engine/utils/rate";
+import { laser, laserDirection } from "./projectiles/laser";
+import { minify } from "html-minifier";
+import { ennemyLaser } from "./projectiles/enemyLaser";
 
 export class ennemyShip extends gameObject{
 
     position: position = {
-        x: gameEngine.getInstance().context.boundaries.maxX / 2,
-        y: 10
+        x: 0,
+        y: 0
     }
 
     collisionBox: rectCollisionBox = new rectCollisionBox(
         40,
-        60,
+        40,
         'ennemy',
         ['playership', 'laser'],
         this.onCollide.bind(this)
@@ -29,10 +35,20 @@ export class ennemyShip extends gameObject{
     movementAngleMax: number = 360;
     movementRadius: number = 1.5;
 
-    constructor(){
-        super();
+    private fireRate: Rate = new Rate(1000);
 
-        this.sprite = new Sprite(ennemyShipSprite);
+    damage: number  = 0;
+
+    constructor(position: position, readonly velocity: number){
+        super();
+        this.position = position;
+
+        this.spriteCollection = [
+            new Sprite(ennemyShipSprite),
+            new Sprite(ennemyShipSpriteDamage1),
+            new Sprite(ennemyShipSpriteDamage2)
+        ]
+        this.sprite = this.spriteCollection[this.damage];
     }
 
     private movement(velocity: number){
@@ -44,20 +60,38 @@ export class ennemyShip extends gameObject{
         this.position.y = this.position.y + Math.sin(this.movementAngle)*this.movementRadius + 0.5;
     }
 
+
     update(delta: number): void {
-        this.movement(0.02);
+        this.movement(this.velocity);
+
+        this.fireRate.do(() => {
+            if(Math.random() > 0.6){
+                const laserP = new ennemyLaser({
+                    x: this.position.x + (this.sprite.image.width / 2),
+                    y: this.position.y + this.sprite.image.height
+                 },
+                  0.5);
+                laserP.registerToLayer(this.renderLayer);
+            }
+        });
+
         if(this.sprite.loaded){
             this.sprite.position = this.collisionBox.position = this.position;
         }
     }
 
     onCollide(){
-        console.log('BANG')
-        this.destroy();
+        this.damage++;
+        if(this.damage >= 3){
+            this.destroy();
+        }
+        this.sprite = this.spriteCollection[this.damage];
         //collisionManager.instance.removeCollision(this.collisionBox);
     }
 
     destroy(){
         Score.instance.addPoints(150);
+        this.collisionBox.destroy();
+        this.renderLayer.removeObject(this);
     }
 }
