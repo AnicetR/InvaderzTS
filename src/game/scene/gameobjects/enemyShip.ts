@@ -25,11 +25,13 @@ export class ennemyShip extends gameObject{
 
     collisionBox: rectCollisionBox = new rectCollisionBox(
         40,
-        40,
+        72,
         'ennemy',
         ['playership', 'laser'],
         this.onCollide.bind(this)
     );
+
+    movementType: number = 0;
 
     movementAngle: number = 0;
     movementAngleMax: number = 360;
@@ -49,20 +51,36 @@ export class ennemyShip extends gameObject{
             new Sprite(ennemyShipSpriteDamage2)
         ]
         this.sprite = this.spriteCollection[this.damage];
+
+        this.movementType = parseInt((Math.random() * 2).toFixed(0));
+
     }
 
-    private movement(velocity: number){
+    private movement(velocity: number, delta: number){
+        switch(this.movementType){
+            case 0: 
+                this._circleMovement(velocity);
+            default:
+                this._straightMovement(velocity, delta);
+        }
+    }
+
+    private _circleMovement(velocity: number){
         this.movementAngle += velocity;
         if(this.movementAngle > this.movementAngleMax){
             this.movementAngle = 0;
         }
-        this.position.x = this.position.x + Math.cos(this.movementAngle)*this.movementRadius;
-        this.position.y = this.position.y + Math.sin(this.movementAngle)*this.movementRadius + 0.5;
+        this.position.x += Math.cos(this.movementAngle)*this.movementRadius;
+        this.position.y += Math.sin(this.movementAngle)*this.movementRadius + 0.5;
+    }
+
+    private _straightMovement(velocity: number, delta: number){
+        this.position.y += (velocity*10) * delta;
     }
 
 
     update(delta: number): void {
-        this.movement(this.velocity);
+        this.movement(this.velocity, delta);
 
         this.fireRate.do(() => {
             if(Math.random() > 0.6){
