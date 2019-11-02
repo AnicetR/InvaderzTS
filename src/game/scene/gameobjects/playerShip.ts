@@ -20,17 +20,17 @@ export class playerShip extends gameObject{
 
     position: position = {
         x: gameEngine.getInstance().context.boundaries.maxX / 2,
-        y: gameEngine.getInstance().context.boundaries.maxY / 2
+        y: gameEngine.getInstance().context.boundaries.maxY - 200
     }
 
     boundaries: any = {
         x : {
             min: 0,
-            max: gameEngine.getInstance().context.boundaries.maxX - 145
+            max: gameEngine.getInstance().context.boundaries.maxX - 150
         },
         y : {
             min: 0,
-            max: gameEngine.getInstance().context.boundaries.maxY - 40
+            max: gameEngine.getInstance().context.boundaries.maxY + 70
         }
     }
 
@@ -38,7 +38,7 @@ export class playerShip extends gameObject{
         100,
         100,
         'playerShip',
-        ['ennemy'],
+        ['ennemy', 'ennemyLaser'],
         this.onCollide
     );
 
@@ -149,7 +149,5 @@ export class playerShip extends gameObject{
 
     onCollide(){
         PlayerLives.instance.subLife(1);
-        console.log(PlayerLives.store.getState());
-        console.log('collision !'+performance.now());
     }
 }
