@@ -61,6 +61,14 @@ export class Renderer{
     }
 
     /**
+     * Delete a layer from the rendering loop
+     * @param layer The RenderLayer to from the loop
+     */
+    removeLayer(layer: RenderLayerInterface): void{
+        this._layersCollection.delete(layer.name);
+    }
+
+    /**
      * get Layers of the rendering loop
      */
     get layers(): Map<string, RenderLayerInterface> {
