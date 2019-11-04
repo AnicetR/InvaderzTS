@@ -2,6 +2,7 @@ import { Context } from "./context";
 import { Renderer } from "./renderer/renderer";
 import { Inputs } from "./inputs";
 import { gameLoop } from "./gameLoop";
+import { sceneManager } from "./sceneManager";
 
 /**
  * gameEngine manager
@@ -11,6 +12,7 @@ export class gameEngine{
     public readonly renderer : Renderer;
     public readonly inputs : Inputs;
     public readonly gameLoop : gameLoop;
+    public readonly sceneMgr : sceneManager;
 
     private static _instance: gameEngine;
 
@@ -24,6 +26,7 @@ export class gameEngine{
         this.inputs = new Inputs();
         this.renderer = new Renderer(this.context);
         this.gameLoop = new gameLoop(this.renderer);
+        this.sceneMgr = new sceneManager();
 
         this.gameLoop.start();
     }
