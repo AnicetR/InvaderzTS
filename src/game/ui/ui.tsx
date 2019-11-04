@@ -1,24 +1,32 @@
 import * as React from 'react';
+
 import './ui.scss';
 import { DebugContainer } from './components/debug/debugContainer';
-import { LifeBar } from './components/gameplay/lives/lifeBar';
-
-import { Container, Row, Col } from 'react-grid-system';
-import { Score } from './components/gameplay/score';
+import { TitleScreen } from './views/titleScreen';
+import { GameOverScreen } from './views/gameOverScreen';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { GamePlayScreen } from './views/gameplayScreen';
+import { LocationListener } from './components/locationListener';
 
 function UI() {
   return (
     <div className="UI">
-      <Container>
-        <Row justify="between" align="center">
-          <Col sm={5}>
-            <LifeBar />
-          </Col>
-          <Col sm={3}>
-            <Score />
-          </Col>
-        </Row>
-      </Container>
+      <Router>
+        <LocationListener>
+          <Switch>
+            <Route path="/play">
+              <GamePlayScreen/>
+            </Route>
+            <Route path="/gameOver">
+              <GameOverScreen/>
+            </Route>
+            <Route path="/">
+              <TitleScreen/>
+            </Route>
+          </Switch>
+        </LocationListener>
+      </Router>
+
       <DebugContainer/>
     </div>
   );
