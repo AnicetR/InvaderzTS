@@ -44,6 +44,14 @@ export class collisionManager{
     }
 
     /**
+     * removes all collisions from the collection
+     * @param collisionBox 
+     */
+    removeAllCollisions(){
+        this.collisionCollection =  new Map();
+    }
+
+    /**
      * check if any collisionBox in the map is colliding with another, and call the "onCollide" callback if it's the case
      */
     checkForCollision(){
